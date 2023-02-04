@@ -1,0 +1,52 @@
+<div id="booking" class="section">
+    
+
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="booking-form">
+                    <div class="form-header">
+                        <h1>Book Your Cab</h1>
+                    </div>
+                    <form [formGroup]="bookingRef" (ngSubmit)="storeBooking()">
+
+                        <div class="form-group">
+                            <input class="form-control"  name="bookingId" formControlName="bookingId" type="number" placeholder="Id">
+                             <span class="form-label">Id</span>
+                       </div>
+
+                        <div class="form-group">
+                             <input class="form-control"  name="bookingDistance" formControlName="bookingDistance" type="number" placeholder="From">
+                              <span class="form-label">Distance</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input class="form-control" name="bookingDate" formControlName="bookingDate"type="date" placeholder="Date">
+                             <span class="form-label">Date</span>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" name="bookingTime" formControlName="bookingTime" type="uib-timepicker" placeholder="Time">
+                             <span class="form-label">Time</span>
+                        </div>
+
+                        <div class="form-group">
+                            <select id="name" name="cabTypeId" class="form-select shadow-none form-control" formControlName="cabTypeId"
+                                [compareWith]="compareByCabId" (selectedValueChange)="onSelectOption($event)" required>
+                                <option *ngFor="let cabType of cabTypeObservable | async; index as idx" [ngValue]=" cabType.cabTypeId">
+                                    {{ cabType.cabTypeName }}
+                                </option>
+                            </select>>
+
+                        </div>
+                        
+                        <div class="form-btn">
+                            <button type = "submit"  class="submit-btn">Calculate Fare</button>
+                            <a routerLink="/home"><button class="submit-btn float">Cancel </button></a>
+                        </div>
+                         
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

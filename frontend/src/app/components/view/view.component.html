@@ -1,0 +1,53 @@
+<div class = "p10">
+    <a routerLink="/home">
+        <button  class = "btn btn-warning">  
+            Go Back
+        </button>
+    </a>
+    
+</div>
+
+
+<div id="booking" class="section">
+
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="booking-form">
+                    
+                    <form>
+                        <div class = "mt-10">
+                            <table class="table table-hover">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Time</th>
+                                    <th scope="col">Distance</th>
+                                    <th scope="col">Fare ($)</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let booking of bookings | async; index as idx">
+                                    <td>{{booking.bookingId}}</td>
+                                    
+                                    <td>{{booking.bookingDate}}</td>
+                                    <td>{{booking.bookingTime}}</td>
+                                    <td>{{booking.bookingDistance}}</td>
+                                    <td>$ {{booking.bookingFare}}</td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                        </div>
+                        
+                        
+                         
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
